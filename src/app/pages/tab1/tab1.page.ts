@@ -8,12 +8,17 @@ import { GamesService } from 'src/app/services/games.service';
 })
 export class Tab1Page implements OnInit{
 
+  
+  juegos:any[] = [];
+
   constructor(private gamesService:GamesService) { }
 
 
   ngOnInit(){
-    this.gamesService.getVideojuegos().subscribe(resp=>{
-      console.log(resp)
+    this.gamesService.getVideojuegos().subscribe((resp:any)=>{
+      console.log(resp.games);
+      this.juegos = resp.games
+      
     })
   }
 
