@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Game, GamesResponse } from 'src/app/interfaces';
 import { GamesService } from 'src/app/services/games.service';
 
 @Component({
@@ -9,14 +10,14 @@ import { GamesService } from 'src/app/services/games.service';
 export class Tab1Page implements OnInit{
 
   
-  juegos:any[] = [];
+  juegos:Game[] = [];
 
   constructor(private gamesService:GamesService) { }
 
 
   ngOnInit(){
-    this.gamesService.getVideojuegos().subscribe((resp:any)=>{
-      console.log(resp.games);
+    this.gamesService.getVideojuegos().subscribe(resp=>{
+      console.log(resp);
       this.juegos = resp.games
       
     })

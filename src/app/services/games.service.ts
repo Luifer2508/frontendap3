@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { GamesResponse } from '../interfaces';
 
 @Injectable({
   providedIn: 'root'
@@ -10,7 +11,7 @@ export class GamesService {
 
 
   getVideojuegos(){
-    return this.http.get('https://backend-videojuegos.herokuapp.com/videojuegos')
+    return this.http.get<GamesResponse>('https://backend-videojuegos.herokuapp.com/videojuegos')
   }
  
 }
